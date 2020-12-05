@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--这里使用了反射机制 基于无参构造的实例化bean-->
+    <bean id="person" class="com.xaut.Maventest.bean.Person">
+        <!--加了以下参数就调用有参构造函数创建bean了-->
+                <constructor-arg index="0" value="小明"/>
+                <constructor-arg index="1" value="666"/>
+    </bean>
+
+    <!--    基于静态工厂方法实例化bean-->
+    <bean id="person1" class="com.xaut.Maventest.Factory.StaticFactory" factory-method="getPerson"/>
+
+    <!--    基于普通工厂方法实例化bean-->
+    <bean id="factory" class="com.xaut.Maventest.Factory.CommonFactory"/>
+    <bean id="person2" factory-bean="factory" factory-method="getPerson"/>
+</beans>
