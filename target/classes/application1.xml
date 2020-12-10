@@ -18,7 +18,7 @@
     <bean id="person2" factory-bean="factory" factory-method="getPerson"/>
     <!--基于xml形式的依赖注入：有参构造函数-->
     <bean id="user" class="com.xaut.Maventest.bean.Person">
-        <constructor-arg name="name" value="xml"/>
-        <constructor-arg name="id" value="222"/>
+        <constructor-arg name="name" value="xml"></constructor-arg>
+        <constructor-arg name="id" value="222"></constructor-arg>
     </bean>
 </beans>

@@ -16,7 +16,7 @@ public class App
         //创建IOC容器对象context
         ApplicationContext context = new ClassPathXmlApplicationContext("application1.xml");
         //从容器中获取对象（通过id）
-        Person person = (Person) context.getBean("person");
+        Person person = (Person) context.getBean("user");
 
         System.out.println(person);
     }
