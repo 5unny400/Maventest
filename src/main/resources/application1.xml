@@ -6,8 +6,8 @@
     <!--这里使用了反射机制创建的对象 基于无参构造的实例化bean-->
     <bean id="person" class="com.xaut.Maventest.bean.Person">
         <!--加了以下参数就调用有参构造函数创建bean了-->
-        <!--                <constructor-arg index="0" value="小明"/>-->
-        <!--                <constructor-arg index="1" value="666"/>-->
+                        <constructor-arg index="0" value="小明"/>
+                                <constructor-arg index="1" value="666"/>
     </bean>
 
     <!--    基于静态工厂方法实例化bean-->
@@ -16,9 +16,39 @@
     <!--    基于普通工厂方法实例化bean-->
     <bean id="factory" class="com.xaut.Maventest.Factory.CommonFactory"/>
     <bean id="person2" factory-bean="factory" factory-method="getPerson"/>
-    <!--基于xml形式的依赖注入：有参构造函数-->
-    <bean id="user" class="com.xaut.Maventest.bean.Person">
-        <constructor-arg name="name" value="xml"/>
-        <constructor-arg name="id" value="222"/>
+
+    <!--基于XML形式的依赖注入：有参构造函数-->
+    <bean id="user" class="com.xaut.Maventest.bean.User">
+        <!--注入属性值-->
+        <constructor-arg name="id"  value="1"/>
+        <constructor-arg name="name"  value="tom"/>
+        <constructor-arg name="passwd"  value="passwd"/>
+        <constructor-arg name="address" value="xaut.edu"/>
     </bean>
+
+<!--    基于xml形式的依赖注入方法：无参构造+set方法-->
+    <bean id="user1" class="com.xaut.Maventest.bean.User">
+        <property name="name" value="Michael"/>
+<!--        注入自定义类型-->
+        <property name="person" ref="person"/>
+
+        <!--注入list类型-->
+        <property name="ls">
+            <list>
+                <value>12</value>
+                <value>13</value>
+            </list>
+        </property>
+        <!--注入map类型数据-->
+        <property name="ms">
+            <map>
+                <entry key="姓名" value="李四"/>
+                <entry key=" 姓名" value="张三"/>
+            </map>
+        </property>
+
+    </bean>
+
+<!--    基于注解的方式注入；-->
+
 </beans>

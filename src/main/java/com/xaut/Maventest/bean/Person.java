@@ -1,7 +1,15 @@
 package com.xaut.Maventest.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("person")
+//等同于      <bean id="person" class="com.xaut.Maventest.bean.Person">
+//默认名字是类名首字母小写
 public class Person {
+    @Value("value注解赋值name")
     private String name;
+    @Value("22")
     private int id;
 
     public Person() {
