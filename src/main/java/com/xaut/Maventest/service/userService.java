@@ -9,16 +9,16 @@ import java.util.List;
 
 @Service(value = "userService")
 //service注解是装配bean
-public class UserService {
+public class userService {
     @Autowired
     //Aotowired是用来注入依赖的
-    private MailService mailService;
+    private com.xaut.Maventest.service.mailService mailService;
 
-    public void setMailService(MailService mailService){
+    public void setMailService(com.xaut.Maventest.service.mailService mailService){
         this.mailService = mailService;
     }
 
-    private List<User> userList = new ArrayList<User>();
+    private final List<User> userList = new ArrayList<User>();
 
     public User login(String name,String passwd){
         for(User user:userList){
@@ -42,7 +42,8 @@ public class UserService {
     public User register(String name,String passwd,String address){
         User user = new User(userList.size()+1,name,passwd,address);
         userList.add(user);
-        mailService.sendRegisterMsg(user);
+//        mailService.sendRegisterMsg(user);
+        System.out.println("注册函数。。。");
         return  user;
 
     }

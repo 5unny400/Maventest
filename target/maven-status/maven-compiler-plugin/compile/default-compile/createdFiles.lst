@@ -1,1 +1,9 @@
+com\xaut\Maventest\bean\User.class
+com\xaut\Maventest\Factory\CommonFactory.class
+com\xaut\Maventest\service\logService.class
+com\xaut\Maventest\bean\Person.class
+com\xaut\Maventest\service\userService.class
 com\xaut\Maventest\App.class
+com\xaut\Maventest\Factory\StaticFactory.class
+com\xaut\Maventest\LG\Test.class
+com\xaut\Maventest\service\mailService.class

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--    将bean交给IOC容器-->
+    <bean id="userService" class="com.xaut.Maventest.service.userService"/>
+    <bean id="mailService" class="com.xaut.Maventest.service.mailService"/>
+
+    <!--    将增强也交给IOC容器-->
+    <bean id="logService" class="com.xaut.Maventest.service.logService"/>
+
+    <!--    配置AOP操作-->
+    <aop:config>
+        <!--        配置切入点 ：使用表达式-->
+        <aop:pointcut id="pointcut1" expression="execution(* com.xaut.Maventest.service.userService.register(..))"/>
+
+        <!--        配置切面-->
+        <!--aop:aspect ref:指定的是增强类-->
+        <aop:aspect ref="logService">
+            <!--配置增强 前置增强-->
+            <!--            method 属性指定增强类中的方法-->
+            <aop:before method="before" pointcut-ref="pointcut1"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+
+<!--注解增强-->
+    <!--开启AOP操作-->
+    <aop:aspectj-autoproxy/>
+</beans>

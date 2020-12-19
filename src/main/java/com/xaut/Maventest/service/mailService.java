@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service(value = "mailService")
 //service注解是装配bean
-public class MailService {
+public class mailService {
 
     public void sendLoginMsg(User user){
         System.out.println(String.format("Hi ,%s",user.getName()));
